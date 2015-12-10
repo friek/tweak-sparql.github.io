@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tweak/Sparql</title>
+    <link>http://tweak-sparql.github.io/</link>
+    <description>Recent content on Tweak/Sparql</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Jul 2015 21:42:41 +0200</lastBuildDate>
+    <atom:link href="http://tweak-sparql.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Netwerk info</title>
+      <link>http://tweak-sparql.github.io/info/</link>
+      <pubDate>Fri, 10 Jul 2015 21:42:41 +0200</pubDate>
+      
+      <guid>http://tweak-sparql.github.io/info/</guid>
+      <description>
+
+&lt;p&gt;TODO: hier komt een duidelijkere uitleg dan wat er op &lt;a href=&#34;https://blog.tweak.nl/hardware/vlan-configuratie-bij-gebruik-eigen-apparatuur/&#34;&gt;https://blog.tweak.nl/hardware/vlan-configuratie-bij-gebruik-eigen-apparatuur/&lt;/a&gt; staat.
+Ook is het de bedoeling dat hier straks configuratie gegevens komen voor bijvoorbeeld OpenWRT.&lt;/p&gt;
+
+&lt;p&gt;Bij Tweak wordt er gebruik gemaakt van VLAN&amp;rsquo;s om het internet en IPTV te scheiden. Wil je eigen apparatuur gebruiken dan is het een vereiste dat de router overweg kan met 802.1Q.&lt;/p&gt;
+
+&lt;h2 id=&#34;internet:6287b96b2ebce4bb09e860d1e6de8b04&#34;&gt;Internet&lt;/h2&gt;
+
+&lt;p&gt;Voor internet kunnen de volgende instellingen gebruikt worden:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Type:     DHCP
+VLAN id:  34
+802.1P:   1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;De DCHP lease is semi-static en gebonden aan het MAC adres. Alleen als je een ander MAC adres gebruikt of voor lange tijd geen verbinding hebt kan het IP-adres veranderen.&lt;/p&gt;
+
+&lt;h2 id=&#34;iptv:6287b96b2ebce4bb09e860d1e6de8b04&#34;&gt;IPTV&lt;/h2&gt;
+
+&lt;p&gt;Voor IPTV worden de volgende instellingen gebruikt.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Type:     DHCP
+VLAN id:  4
+802.1P:   5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Het is belangrijk dat de gateway voor IPTV niet wordt gebruikt als default gateway.&lt;/p&gt;
+
+&lt;p&gt;De IPTV boxen maken gebruik van het internet om de interface en EPG op te halen, de TV streams moeten dan vanuit het IPTV VLAN komen. Om dit te bewerkstelligen moet er een static route en een IGMP proxy worden toegevoegd.&lt;/p&gt;
+
+&lt;p&gt;Voor de static route moet 185.6.48.0/26 gerouted worden naar de gateway van het IPTV VLAN.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sparql Box</title>
+      <link>http://tweak-sparql.github.io/sparqlbox/</link>
+      <pubDate>Fri, 10 Jul 2015 08:59:54 +0200</pubDate>
+      
+      <guid>http://tweak-sparql.github.io/sparqlbox/</guid>
+      <description>
+
+&lt;h2 id=&#34;factory-reset:4d3efdfc9c70a7690b63572b45e80314&#34;&gt;Factory reset&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Haal de Sparql Box van het stroom af en ontkoppel de netwerk-kabel aan de achterzijde van de Sparql Box.&lt;/li&gt;
+&lt;li&gt;Sluit vervolgens de power-kabel weer aan. De Sparql Box start nu opnieuw op. Wanneer deze opgestart is krijgt u de melding dat er geen netwerkverbinding is.&lt;/li&gt;
+&lt;li&gt;Druk vervolgens op de home knop (het huisje in de rechter bovenhoek van de afstandsbediening). Nu krijgt u verschillende tegels in beeld.&lt;/li&gt;
+&lt;li&gt;U kunt nu weer de netwerk-kabel aansluiten.&lt;/li&gt;
+&lt;li&gt;Vervolgens drukt u op de tegel &amp;ldquo;TV2Next&amp;rdquo; links onder. In het hierna volgende scherm heeft u de mogelijkheid om uw ontvanger een fabrieksreset te geven (onderste optie). De Sparql Box zal opnieuw opstarten en een welkomstscherm zien. Vervolgens krijgt u de mogelijkheid om een taal te kiezen en dient het netwerk getest te worden. Volg de instructies op het scherm om de meest recente firmware van de ontvanger te downloaden. Deze stap neemt ongeveer 5 minuten in beslag.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;em&gt;Bron: email van Tweak&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;resolutie-aanpassen:4d3efdfc9c70a7690b63572b45e80314&#34;&gt;Resolutie aanpassen&lt;/h2&gt;
+
+&lt;p&gt;Zoek het IP adres op van de Sparql box.&lt;/p&gt;
+
+&lt;p&gt;Ga naar &lt;a href=&#34;http://IP_SPARQL_BOX/api/workbench/index.php/reference/display/setResolution&#34;&gt;http://IP_SPARQL_BOX/api/workbench/index.php/reference/display/setResolution&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Kies hier de juiste resolutie onder het kopje Test&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Factory reset Zyxel</title>
+      <link>http://tweak-sparql.github.io/factory/</link>
+      <pubDate>Fri, 19 Jun 2015 09:36:09 +0200</pubDate>
+      
+      <guid>http://tweak-sparql.github.io/factory/</guid>
+      <description>&lt;p&gt;Zorg dat je voordat je hier mee begint de standaard configuratie en firmware van Tweak gedownload hebt. Mocht er iets mis gaan, dan kun je altijd terug.&lt;/p&gt;
+
+&lt;p&gt;Telnet naar router en log in met admin&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ telnet 192.168.1.1
+Login: admin
+Password:
+&amp;gt; save_default clean
+ROM-D cleaned.
+&amp;gt; restoredefault
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Hierna is het het beste om een 30-30-30 reset te doen. De procedure hiervoor is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;druk het reset knopje in en wacht 30 seconden&lt;/li&gt;
+&lt;li&gt;hou het knopje ingedrukt, haal de stroom eraf en wacht 30 seconden&lt;/li&gt;
+&lt;li&gt;met het knopje nog steeds ingedrukt, zet de stroom er weer op en wacht 30 seconden&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Hiermee zorg je ervoor dat er niets in het geheugen blijft hangen wat voor problemen kan zorgen.&lt;/p&gt;
+
+&lt;p&gt;Als eerste moeten er de juiste WAN interfaces aangemaakt worden.
+Ga naar &lt;strong&gt;Network Setting &amp;gt; Broadband&lt;/strong&gt; en kies &amp;ldquo;Add New WAN Interface&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Voor internet (alleen de waarden die ingevuld moeten worden):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;General
+Active: 	Aan
+Name:		ETHWAN (of een eigen gekozen naam)
+Type:		Ethernet
+Mode:		Routing
+Encapsulation:	IPoE
+
+Routing Feature
+NAT Enable:			Aan
+Fullcone NAT Enable:		Aan
+IGMP Proxy Enable:		Uit!
+Apply as Default Gateway:	Aan
+
+VLAN
+Active:	Aan
+802.1p:	1
+802.1q: 34
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Voor IPTV (ook weer alleen de waarden die ingevuld moeten worden):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;General
+Active:		Aan
+Name: 		IPTV (of een eigen gekozen naam)
+Type: 		Ethernet
+Mode: 		Routing
+Encapsulation: 	IPoE
+
+Routing Feature
+NAT Enable:			Aan
+Fullcone NAT Enable:		Aan
+IGMP Proxy Enable:		Aan
+Apply as Default Gateway:	Uit!
+
+VLAN
+Active: Aan
+802.1p:	5
+802.1q: 4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Vervolgens moet er een static route aangemaakt worden voor IPTV:
+Ga naar &lt;strong&gt;Network Setting &amp;gt; Routing&lt;/strong&gt; en &amp;ldquo;Add New Static Route&amp;rdquo;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Active:			Aan
+Route name:		IPTV (of een eigen gekozen naam)
+IP Type: 		IPv4
+Destination IP Address:	185.6.48.0
+IP Subnet Mask: 	255.255.255.0
+Use Gateway IP Address:	Enable
+Gateway IP Address: 	(kan leeg gelaten worden, deze vult hij automatisch in)
+Use Interface: 		IPTV/eth4.2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Vanaf dit punt zou internet en TV moeten functioneren. Dan kan nu telefonie ingesteld worden.&lt;/p&gt;
+
+&lt;p&gt;Ga naar &lt;strong&gt;VoIP &amp;gt; SIP &amp;gt; SIP Service provider&lt;/strong&gt; en kies voor &amp;ldquo;Add new provider&amp;rdquo;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SIP Service Provider Name: 	Tweak
+SIP Server Address:		sip.tweakphone.nl
+REGISTER Server Address: 	sip.tweakphone.nl
+SIP Service Domain: 		sip.tweakphone.nl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ga naar &lt;strong&gt;VoIP &amp;gt; SIP &amp;gt; SIP Account&lt;/strong&gt; en kies voor &amp;ldquo;Add new account&amp;rdquo;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SIP Account Associated with:	Tweak
+Enable SIP Account:		Aan
+SIP Account Number:		31xxxxxxxxx
+Username:			31xxxxxxxxx
+Password:			wachtwoord
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Als het goed is moet dan ook telefonie werken.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>index</title>
+      <link>http://tweak-sparql.github.io/</link>
+      <pubDate>Fri, 12 Jun 2015 16:29:31 +0200</pubDate>
+      
+      <guid>http://tweak-sparql.github.io/</guid>
+      <description>
+
+&lt;h2 id=&#34;welkom:d680e8a854a7cbad6d490c445cba2eba&#34;&gt;Welkom&lt;/h2&gt;
+
+&lt;p&gt;Deze site zal voornamelijk gebruikt worden als naslagwerk voor aanpassingen aan de Zyxel en Sparql-box, welke geleverd worden bij &lt;a href=&#34;http://www.tweak.nl&#34;&gt;Tweak&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Een deel van deze info is verkregen via het Tweak glasvezel ervaringen topic &lt;a href=&#34;http://gathering.tweakers.net/forum/list_messages/1616881&#34;&gt;http://gathering.tweakers.net/forum/list_messages/1616881&lt;/a&gt; en de github wiki van NovaPax &lt;a href=&#34;https://github.com/NovapaX/sparqltv/wiki&#34;&gt;https://github.com/NovapaX/sparqltv/wiki&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

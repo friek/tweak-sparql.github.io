@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <title>Netwerk info - Tweak/Sparql</title>
+
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/spacelab/bootstrap.min.css" rel="stylesheet">
+
+	<link href="http://tweak-sparql.github.io/css/overrides.css" rel="stylesheet">
+    
+    
+    
+  </head>
+  <body>
+<div class="container">
+
+ 
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="/">Tweak/Sparql</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            
+            <ul class="nav navbar-nav">
+             <li ><a href="/">Home</a></li>
+              
+              <li ><a href="/factory/">Factory reset Zyxel</a></li>
+              
+              <li class="active" ><a href="/info/">Netwerk info</a></li>
+              
+              <li ><a href="/sparqlbox/">Sparql Box</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<h1> Netwerk info </h1>
+
+
+
+<p>TODO: hier komt een duidelijkere uitleg dan wat er op <a href="https://blog.tweak.nl/hardware/vlan-configuratie-bij-gebruik-eigen-apparatuur/">https://blog.tweak.nl/hardware/vlan-configuratie-bij-gebruik-eigen-apparatuur/</a> staat.
+Ook is het de bedoeling dat hier straks configuratie gegevens komen voor bijvoorbeeld OpenWRT.</p>
+
+<p>Bij Tweak wordt er gebruik gemaakt van VLAN&rsquo;s om het internet en IPTV te scheiden. Wil je eigen apparatuur gebruiken dan is het een vereiste dat de router overweg kan met 802.1Q.</p>
+
+<h2 id="internet:6287b96b2ebce4bb09e860d1e6de8b04">Internet</h2>
+
+<p>Voor internet kunnen de volgende instellingen gebruikt worden:</p>
+
+<pre><code>Type:     DHCP
+VLAN id:  34
+802.1P:   1
+</code></pre>
+
+<p>De DCHP lease is semi-static en gebonden aan het MAC adres. Alleen als je een ander MAC adres gebruikt of voor lange tijd geen verbinding hebt kan het IP-adres veranderen.</p>
+
+<h2 id="iptv:6287b96b2ebce4bb09e860d1e6de8b04">IPTV</h2>
+
+<p>Voor IPTV worden de volgende instellingen gebruikt.</p>
+
+<pre><code>Type:     DHCP
+VLAN id:  4
+802.1P:   5
+</code></pre>
+
+<p>Het is belangrijk dat de gateway voor IPTV niet wordt gebruikt als default gateway.</p>
+
+<p>De IPTV boxen maken gebruik van het internet om de interface en EPG op te halen, de TV streams moeten dan vanuit het IPTV VLAN komen. Om dit te bewerkstelligen moet er een static route en een IGMP proxy worden toegevoegd.</p>
+
+<p>Voor de static route moet 185.6.48.0/26 gerouted worden naar de gateway van het IPTV VLAN.</p>
+
+</div>
+</div>
+
+ 
+<footer class="footer">
+	
+</footer>
+ </div> 
+
+
+ <script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-64244192-1', 'auto');
+	ga('send', 'pageview');
+</script>
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>

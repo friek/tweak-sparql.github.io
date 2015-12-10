@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <title>Factory reset Zyxel - Tweak/Sparql</title>
+
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/spacelab/bootstrap.min.css" rel="stylesheet">
+
+	<link href="http://tweak-sparql.github.io/css/overrides.css" rel="stylesheet">
+    
+    
+    
+  </head>
+  <body>
+<div class="container">
+
+ 
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="/">Tweak/Sparql</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            
+            <ul class="nav navbar-nav">
+             <li ><a href="/">Home</a></li>
+              
+              <li class="active" ><a href="/factory/">Factory reset Zyxel</a></li>
+              
+              <li ><a href="/info/">Netwerk info</a></li>
+              
+              <li ><a href="/sparqlbox/">Sparql Box</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<h1> Factory reset Zyxel </h1>
+
+<p>Zorg dat je voordat je hier mee begint de standaard configuratie en firmware van Tweak gedownload hebt. Mocht er iets mis gaan, dan kun je altijd terug.</p>
+
+<p>Telnet naar router en log in met admin</p>
+
+<pre><code>$ telnet 192.168.1.1
+Login: admin
+Password:
+&gt; save_default clean
+ROM-D cleaned.
+&gt; restoredefault
+</code></pre>
+
+<p>Hierna is het het beste om een 30-30-30 reset te doen. De procedure hiervoor is:</p>
+
+<ul>
+<li>druk het reset knopje in en wacht 30 seconden</li>
+<li>hou het knopje ingedrukt, haal de stroom eraf en wacht 30 seconden</li>
+<li>met het knopje nog steeds ingedrukt, zet de stroom er weer op en wacht 30 seconden</li>
+</ul>
+
+<p>Hiermee zorg je ervoor dat er niets in het geheugen blijft hangen wat voor problemen kan zorgen.</p>
+
+<p>Als eerste moeten er de juiste WAN interfaces aangemaakt worden.
+Ga naar <strong>Network Setting &gt; Broadband</strong> en kies &ldquo;Add New WAN Interface&rdquo;</p>
+
+<p>Voor internet (alleen de waarden die ingevuld moeten worden):</p>
+
+<pre><code>General
+Active: 	Aan
+Name:		ETHWAN (of een eigen gekozen naam)
+Type:		Ethernet
+Mode:		Routing
+Encapsulation:	IPoE
+
+Routing Feature
+NAT Enable:			Aan
+Fullcone NAT Enable:		Aan
+IGMP Proxy Enable:		Uit!
+Apply as Default Gateway:	Aan
+
+VLAN
+Active:	Aan
+802.1p:	1
+802.1q: 34
+</code></pre>
+
+<p>Voor IPTV (ook weer alleen de waarden die ingevuld moeten worden):</p>
+
+<pre><code>General
+Active:		Aan
+Name: 		IPTV (of een eigen gekozen naam)
+Type: 		Ethernet
+Mode: 		Routing
+Encapsulation: 	IPoE
+
+Routing Feature
+NAT Enable:			Aan
+Fullcone NAT Enable:		Aan
+IGMP Proxy Enable:		Aan
+Apply as Default Gateway:	Uit!
+
+VLAN
+Active: Aan
+802.1p:	5
+802.1q: 4
+</code></pre>
+
+<p>Vervolgens moet er een static route aangemaakt worden voor IPTV:
+Ga naar <strong>Network Setting &gt; Routing</strong> en &ldquo;Add New Static Route&rdquo;</p>
+
+<pre><code>Active:			Aan
+Route name:		IPTV (of een eigen gekozen naam)
+IP Type: 		IPv4
+Destination IP Address:	185.6.48.0
+IP Subnet Mask: 	255.255.255.0
+Use Gateway IP Address:	Enable
+Gateway IP Address: 	(kan leeg gelaten worden, deze vult hij automatisch in)
+Use Interface: 		IPTV/eth4.2
+</code></pre>
+
+<p>Vanaf dit punt zou internet en TV moeten functioneren. Dan kan nu telefonie ingesteld worden.</p>
+
+<p>Ga naar <strong>VoIP &gt; SIP &gt; SIP Service provider</strong> en kies voor &ldquo;Add new provider&rdquo;</p>
+
+<pre><code>SIP Service Provider Name: 	Tweak
+SIP Server Address:		sip.tweakphone.nl
+REGISTER Server Address: 	sip.tweakphone.nl
+SIP Service Domain: 		sip.tweakphone.nl
+</code></pre>
+
+<p>Ga naar <strong>VoIP &gt; SIP &gt; SIP Account</strong> en kies voor &ldquo;Add new account&rdquo;</p>
+
+<pre><code>SIP Account Associated with:	Tweak
+Enable SIP Account:		Aan
+SIP Account Number:		31xxxxxxxxx
+Username:			31xxxxxxxxx
+Password:			wachtwoord
+</code></pre>
+
+<p>Als het goed is moet dan ook telefonie werken.</p>
+
+</div>
+</div>
+
+ 
+<footer class="footer">
+	
+</footer>
+ </div> 
+
+
+ <script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-64244192-1', 'auto');
+	ga('send', 'pageview');
+</script>
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>
