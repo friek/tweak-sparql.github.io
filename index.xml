@@ -6,8 +6,32 @@
     <description>Recent content on Tweak/Sparql</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl-nl</language>
-    <lastBuildDate>Fri, 10 Jul 2015 21:42:41 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 02 Feb 2016 20:09:22 +0100</lastBuildDate>
     <atom:link href="http://tweak-sparql.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>IPv6</title>
+      <link>http://tweak-sparql.github.io/ipv6/</link>
+      <pubDate>Tue, 02 Feb 2016 20:09:22 +0100</pubDate>
+      
+      <guid>http://tweak-sparql.github.io/ipv6/</guid>
+      <description>
+
+&lt;h2 id=&#34;ipv6:aecbd716a57c78c1daded73a1fd96ad1&#34;&gt;IPv6&lt;/h2&gt;
+
+&lt;p&gt;Tweak ondersteund officieel nog geen IPv6, maar biedt het wel aan door middel van 6rd.&lt;/p&gt;
+
+&lt;p&gt;Hiervoor heb je de volgende gegevens nodig:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Adres range:      84.245.0.0/18
+IPv6 Prefix:      2a02:58:c0::/42
+IPv4 Mask Length: 18
+Border relay:     217.19.16.16
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;TODO: aanvullen met andere adres range.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Netwerk info</title>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     
-    <title>Netwerk info - Tweak/Sparql</title>
+    <title>IPv6 - Tweak/Sparql</title>
 
     
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
@@ -41,9 +41,9 @@
               
               <li ><a href="/factory/">Factory reset Zyxel</a></li>
               
-              <li ><a href="/ipv6/">IPv6</a></li>
+              <li class="active" ><a href="/ipv6/">IPv6</a></li>
               
-              <li class="active" ><a href="/info/">Netwerk info</a></li>
+              <li ><a href="/info/">Netwerk info</a></li>
               
               <li ><a href="/sparqlbox/">Sparql Box</a></li>
               
@@ -57,40 +57,23 @@
 
 <div class="row">
 <div class="col-sm-12">
-<h1> Netwerk info </h1>
+<h1> IPv6 </h1>
 
 
 
-<p>TODO: hier komt een duidelijkere uitleg dan wat er op <a href="https://blog.tweak.nl/hardware/vlan-configuratie-bij-gebruik-eigen-apparatuur/">https://blog.tweak.nl/hardware/vlan-configuratie-bij-gebruik-eigen-apparatuur/</a> staat.
-Ook is het de bedoeling dat hier straks configuratie gegevens komen voor bijvoorbeeld OpenWRT.</p>
+<h2 id="ipv6:aecbd716a57c78c1daded73a1fd96ad1">IPv6</h2>
 
-<p>Bij Tweak wordt er gebruik gemaakt van VLAN&rsquo;s om het internet en IPTV te scheiden. Wil je eigen apparatuur gebruiken dan is het een vereiste dat de router overweg kan met 802.1Q.</p>
+<p>Tweak ondersteund officieel nog geen IPv6, maar biedt het wel aan door middel van 6rd.</p>
 
-<h2 id="internet:6287b96b2ebce4bb09e860d1e6de8b04">Internet</h2>
+<p>Hiervoor heb je de volgende gegevens nodig:</p>
 
-<p>Voor internet kunnen de volgende instellingen gebruikt worden:</p>
-
-<pre><code>Type:     DHCP
-VLAN id:  34
-802.1P:   1
+<pre><code>Adres range:      84.245.0.0/18
+IPv6 Prefix:      2a02:58:c0::/42
+IPv4 Mask Length: 18
+Border relay:     217.19.16.16
 </code></pre>
 
-<p>De DCHP lease is semi-static en gebonden aan het MAC adres. Alleen als je een ander MAC adres gebruikt of voor lange tijd geen verbinding hebt kan het IP-adres veranderen.</p>
-
-<h2 id="iptv:6287b96b2ebce4bb09e860d1e6de8b04">IPTV</h2>
-
-<p>Voor IPTV worden de volgende instellingen gebruikt.</p>
-
-<pre><code>Type:     DHCP
-VLAN id:  4
-802.1P:   5
-</code></pre>
-
-<p>Het is belangrijk dat de gateway voor IPTV niet wordt gebruikt als default gateway.</p>
-
-<p>De IPTV boxen maken gebruik van het internet om de interface en EPG op te halen, de TV streams moeten dan vanuit het IPTV VLAN komen. Om dit te bewerkstelligen moet er een static route en een IGMP proxy worden toegevoegd.</p>
-
-<p>Voor de static route moet 185.6.48.0/26 gerouted worden naar de gateway van het IPTV VLAN.</p>
+<p>TODO: aanvullen met andere adres range.</p>
 
 </div>
 </div>
