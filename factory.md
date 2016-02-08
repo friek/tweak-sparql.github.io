@@ -9,14 +9,14 @@ Zorg dat je voordat je hier mee begint de standaard configuratie en firmware van
 
 Telnet naar router en log in met admin
 
-{% highlight shell %}
+```
 $ telnet 192.168.1.1
 Login: admin
 Password:
 > save_default clean
 ROM-D cleaned.
 > restoredefault
-{% endhighlight %}
+```
 
 Hierna is het het beste om een 30-30-30 reset te doen. De procedure hiervoor is:
 
@@ -31,7 +31,7 @@ Ga naar **Network Setting > Broadband** en kies "Add New WAN Interface"
 
 Voor internet (alleen de waarden die ingevuld moeten worden):
 
-{% highlight config %}
+```
 General
 Active: 	Aan
 Name:		ETHWAN (of een eigen gekozen naam)
@@ -49,11 +49,11 @@ VLAN
 Active:	Aan
 802.1p:	1
 802.1q: 34
-{% endhighlight %}
+```
 
 Voor IPTV (ook weer alleen de waarden die ingevuld moeten worden):
 
-{% highlight config %}
+```
 General
 Active:		Aan
 Name: 		IPTV (of een eigen gekozen naam)
@@ -71,12 +71,12 @@ VLAN
 Active: Aan
 802.1p:	5
 802.1q: 4
-{% endhighlight %}
+```
 
 Vervolgens moet er een static route aangemaakt worden voor IPTV:
 Ga naar **Network Setting > Routing** en "Add New Static Route"
 
-{% highlight config %}
+```
 Active:			Aan
 Route name:		IPTV (of een eigen gekozen naam)
 IP Type: 		IPv4
@@ -95,17 +95,17 @@ SIP Service Provider Name: 	Tweak
 SIP Server Address:		sip.tweakphone.nl
 REGISTER Server Address: 	sip.tweakphone.nl
 SIP Service Domain: 		sip.tweakphone.nl
-{% endhighlight %}
+```
 
 
 Ga naar **VoIP > SIP > SIP Account** en kies voor "Add new account"
 
-{% highlight config %}
+```
 SIP Account Associated with:	Tweak
 Enable SIP Account:		Aan
 SIP Account Number:		31xxxxxxxxx
 Username:			31xxxxxxxxx
 Password:			wachtwoord
-{% endhighlight %}
+```
 
 Als het goed is moet dan ook telefonie werken.
