@@ -90,6 +90,7 @@ Use Interface: 		IPTV/eth4.2
 Vanaf dit punt zou internet en TV moeten functioneren. Dan kan nu telefonie ingesteld worden.
 
 Ga naar **VoIP > SIP > SIP Service provider** en kies voor "Add new provider"
+
 ```
 SIP Service Provider Name: 	Tweak
 SIP Server Address:		sip.tweakphone.nl
