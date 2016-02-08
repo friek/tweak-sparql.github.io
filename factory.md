@@ -85,12 +85,12 @@ IP Subnet Mask: 	255.255.255.0
 Use Gateway IP Address:	Enable
 Gateway IP Address: 	(kan leeg gelaten worden, deze vult hij automatisch in)
 Use Interface: 		IPTV/eth4.2
-{% endhighlight %}
+```
 
 Vanaf dit punt zou internet en TV moeten functioneren. Dan kan nu telefonie ingesteld worden.
 
 Ga naar **VoIP > SIP > SIP Service provider** en kies voor "Add new provider"
-{% highlight config %}
+```
 SIP Service Provider Name: 	Tweak
 SIP Server Address:		sip.tweakphone.nl
 REGISTER Server Address: 	sip.tweakphone.nl
