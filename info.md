@@ -4,7 +4,7 @@ title: Netwerk info
 permalink: /info/
 ---
 
-TODO: hier komt een duidelijkere uitleg dan wat er op https://blog.tweak.nl/hardware/vlan-configuratie-bij-gebruik-eigen-apparatuur/ staat.
+TODO: hier komt een duidelijkere uitleg dan wat er op <https://blog.tweak.nl/hardware/vlan-configuratie-bij-gebruik-eigen-apparatuur/> staat.
 Ook is het de bedoeling dat hier straks configuratie gegevens komen voor bijvoorbeeld OpenWRT.
 
 Bij Tweak wordt er gebruik gemaakt van VLAN's om het internet en IPTV te scheiden. Wil je eigen apparatuur gebruiken dan is het een vereiste dat de router overweg kan met 802.1Q.

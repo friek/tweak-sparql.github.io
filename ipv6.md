@@ -4,8 +4,6 @@ title: IPv6
 permalink: /ipv6/
 ---
 
-## IPv6
-
 Tweak ondersteund officieel nog geen IPv6, maar biedt het wel aan door middel van 6rd.
 
 Hiervoor heb je de volgende gegevens nodig:

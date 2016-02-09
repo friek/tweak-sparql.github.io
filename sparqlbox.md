@@ -13,10 +13,3 @@ permalink: /sparqlbox/
 5. Vervolgens drukt u op de tegel "TV2Next" links onder. In het hierna volgende scherm heeft u de mogelijkheid om uw ontvanger een fabrieksreset te geven (onderste optie). De Sparql Box zal opnieuw opstarten en een welkomstscherm zien. Vervolgens krijgt u de mogelijkheid om een taal te kiezen en dient het netwerk getest te worden. Volg de instructies op het scherm om de meest recente firmware van de ontvanger te downloaden. Deze stap neemt ongeveer 5 minuten in beslag.
 
 _Bron: email van Tweak_
-
-## Resolutie aanpassen
-Zoek het IP adres op van de Sparql box.
-
-Ga naar http://IP_SPARQL_BOX/api/workbench/index.php/reference/display/setResolution
-
-Kies hier de juiste resolutie onder het kopje Test
