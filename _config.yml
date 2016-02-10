@@ -5,7 +5,6 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
 
-# Site settings
 title: Tweak-Sparql
 description: > # this means to ignore newlines until "baseurl:"
   Site met handige tips en tweaks voor internet van Tweak en IPTV van Sparql
@@ -14,3 +13,10 @@ url: "http://tweak-sparql.github.io" # the base hostname & protocol for your sit
 
 # Build settings
 markdown: kramdown
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+gems:
+  - jekyll-coffeescript
+  - jekyll-paginate
